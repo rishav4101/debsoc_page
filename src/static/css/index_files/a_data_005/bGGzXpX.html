@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+<meta name="apple-mobile-web-app-title" content="CodePen">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+<title>CodePen - Landing page, CSS grid layout</title>
+<link href="bGGzXpX_data/css.css" rel="stylesheet">
+<link rel="stylesheet" href="bGGzXpX_data/font-awesome.css">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: rgba(255, 70, 70, 0.08);
+  font-family: 'Open Sans', sans-serif;
+  color: #666;
+  line-height: 1.7;
+}
+
+.container {
+  max-width: 100vw;
+  display: grid;
+  grid-template-columns: 80px repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr) 100px;
+}
+
+nav {
+  grid-column: 5 / -1;
+  grid-row: 1 / span 1;
+}
+nav > ul {
+  list-style: none;
+  display: flex;
+}
+nav > ul > li {
+  padding: 1.5rem 1rem 0.5rem 1rem;
+  margin: 0;
+  margin-top: -1rem;
+  text-transform: uppercase;
+  color: #ff4646;
+  letter-spacing: 0.2rem;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #ff4646 0%, #ff4646 100%);
+  background-position: 100% 0;
+  background-repeat: repeat-x;
+  background-size: 6px 6px;
+  transition: all .5s;
+}
+nav > ul > li:hover {
+  background-size: 6px 60px;
+  color: white;
+}
+nav > ul > li > .fa {
+  font-size: 1.6rem;
+}
+
+.line-text {
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 22rem;
+  left: -13rem;
+  letter-spacing: 0.2rem;
+  color: #ff4646;
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  font-size: 5rem;
+  color: #ff4646;
+  font-family: "Poiret One", cursive;
+  grid-column: 3 / span 4;
+  grid-row: 2 / span 1;
+  z-index: 2;
+  align-self: end;
+}
+h1::after {
+  content: " ";
+  position: relative;
+  display: block;
+  top: -0.4rem;
+  left: 0;
+  width: 4rem;
+  height: 0.3rem;
+  background: #ff4646;
+}
+
+.text {
+  grid-column: 3 / span 2;
+  grid-row: 3 / span 1;
+  padding-right: 3rem;
+  margin-top: -2rem;
+  letter-spacing: 0.1rem;
+}
+
+.pic-1 {
+  max-width: 400px;
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 1;
+  box-shadow: 35px 25px #ff4646;
+}
+.pic-1:hover {
+  transform: translateY(1rem) translateX(1rem);
+}
+
+.pic-2 {
+  max-width: 750px;
+  grid-column: 5 / -1;
+  grid-row: 2 / -1;
+  z-index: 1;
+}
+
+.pic-3 {
+  max-width: 400px;
+  grid-column: 2 / span 2;
+  grid-row: 4 / -1;
+  box-shadow: 45px -15px #ff4646;
+}
+.pic-3:hover {
+  transform: translateY(-1rem) translateX(1rem);
+}
+
+.pic {
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.pic:hover {
+  -webkit-filter: invert(40%) grayscale(100%) brightness(50%) sepia(80%) hue-rotate(-50deg) saturate(700%) contrast(2);
+  filter: grayscale(100%) brightness(50%) sepia(80%) hue-rotate(-50deg) saturate(700%) contrast(0.8);
+  box-shadow: none;
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  color: #ff4646;
+  grid-column: 5 / span 1;
+  grid-row: 5 / -1;
+  transform: translateX(-5rem) translateY(-16rem);
+}
+.social > .fa {
+  font-size: 2rem;
+  padding: 1.5rem;
+  cursor: pointer;
+  background: linear-gradient(to left, #ff4646 100%, #ff4646 0%);
+  background-position: 74px 100px;
+  background-repeat: repeat-y;
+  background-size: 6px 6px;
+  transition: all .8s;
+}
+.social > .fa:hover {
+  background-size: 200px 6px;
+  background-position: -50px -50px;
+  color: white;
+}
+
+footer {
+  grid-column: 4 / -1;
+  grid-row: 6 / -1;
+  font-size: 0.8rem;
+  color: #ff4646;
+  letter-spacing: 0.1rem;
+  align-self: top;
+  justify-self: end;
+  padding-right: 5rem;
+}
+
+@media only screen and (max-width: 1730px) {
+  .pic-2 {
+    max-width: 650px;
+    transform: translateY(5rem);
+  }
+
+  .social {
+    transform: translateX(-5rem) translateY(-20rem);
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+  }
+
+  nav {
+    grid-column: 2 / -1;
+  }
+
+  .pic-1 {
+    display: none;
+  }
+
+  .pic-2 {
+    max-width: 500px;
+    grid-column: 2 / span 4;
+    grid-row: 4 / span 4;
+  }
+
+  .pic-3 {
+    display: none;
+  }
+
+  .line-text {
+    top: 25rem;
+    left: -18rem;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  h1 {
+    letter-spacing: 0.5rem;
+    font-size: 3rem;
+    grid-column: 2 / span 4;
+    grid-row: 2 / span 1;
+    z-index: 2;
+    align-self: start;
+  }
+
+  .text {
+    grid-column: 2 / -1;
+    grid-row: 3 / span 4;
+    margin-top: -1rem;
+    letter-spacing: 0.05rem;
+    font-size: 0.9rem;
+  }
+
+  .social {
+    grid-column: 6 / span 1;
+    grid-row: 5 / -1;
+    transform: translateX(0) translateY(0);
+    justify-self: end;
+  }
+
+  footer {
+    grid-column: 2 / -1;
+    grid-row: 8 / -1;
+    letter-spacing: 0.1rem;
+    align-self: end;
+    padding-right: 0;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .container {
+    grid-template-rows: 100px 100px repeat(3, minmax(min-content, 200px)) 50px;
+  }
+
+  nav {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+  nav > ul > li {
+    font-size: 0.8rem;
+    padding: 1.5rem 0.5rem;
+  }
+
+  .pic-2 {
+    max-width: 95%;
+    grid-row: 4 / span 1;
+    align-self: start;
+  }
+
+  .line-text {
+    top: 25rem;
+    left: -18rem;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+    align-self: center;
+  }
+  h1::after {
+    top: -0.2rem;
+    height: 0.2rem;
+  }
+
+  .text {
+    grid-column: 2 / -1;
+    grid-row: 3 / span 1;
+    padding-right: 0.5rem;
+  }
+
+  .social {
+    grid-column: 6 / -1;
+    grid-row: 4 / span 1;
+    align-self: end;
+  }
+  .social > .fa {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  footer {
+    grid-column: 2 / -1;
+    grid-row: 6 / -1;
+  }
+}
+</style>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+</head>
+<body translate="no">
+<div class="container">
+<nav>
+<ul>
+<li>Home</li>
+<li>Gallery</li>
+<li>Stories</li>
+<li>About</li>
+<li><i class="fa fa-shopping-cart"></i></li>
+</ul>
+</nav>
+<div class="line-text">pellentesque | diam volutpat | commodo sed | egestas sed </div>
+<img class="pic-1 pic" src="bGGzXpX_data/pexels-photo-3119709.jpeg" alt="lady">
+<h1>Donec bassak</h1>
+<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+ sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ultrices vitae auctor eu augue. Enim sed faucibus turpis in eu mi. Mi in
+ nulla posuere sollicitudin aliquam. Dignissim convallis aenean et 
+tortor. Cras pulvinar mattis nunc sed blandit libero. Sagittis eu 
+volutpat odio facilisis mauris. A lacus vestibulum sed arcu non odio. 
+Accumsan sit amet nulla facilisi. Urna id volutpat lacus laoreet. Risus 
+sed vulputate odio ut.</p>
+<img class="pic-2 pic" src="bGGzXpX_data/pexels-photo-2947915.jpeg" alt="kid">
+<img src="bGGzXpX_data/pexels-photo-1921988.jpeg" class="pic-3 pic" alt="pic">
+<div class="social">
+<i class="fa fa-facebook-f"></i>
+<i class="fa fa-instagram"></i>
+<i class="fa fa-pinterest-p"></i>
+<i class="fa fa-youtube"></i>
+<i class="fa fa-google"></i>
+</div>
+<footer>
+<p>Maja Kulpa 2019. © All rights reserved. Leo integer malesuada nunc vel risus.</p>
+</footer>
+</div>
+<script src="bGGzXpX_data/iframeRefreshCSS-e03f509ba0a671350b4b363ff105b2eb009850f34a2b.js"></script>
+
+
+</body></html>

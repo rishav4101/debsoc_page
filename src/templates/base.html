@@ -1,0 +1,103 @@
+ {% load bootstrap4 %}
+ {% load static %}
+ <html>
+  <meta charset="UTF-8">
+  <head>
+  	<title>debsoc</title>
+  	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/foot.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/index.css" />
+  	<style>
+  		body { background-color: #ffffff ; margin: 0; 
+  			 overflow: scroll;
+         height:100%;
+    width:100%;
+  		}
+       #vantajs{
+    height:100%;
+    width:100%;
+    z-index:-1;
+    position: absolute;
+
+  }
+
+
+  </style>
+  <div id="vantajs"></div>
+  </head>
+  <body>
+    
+  <div  class="open">
+    <span class="cls"></span>
+    <span>
+        <ul class="sub-menu ">
+            <li>
+                <a href="#about" title="about">Home</a>
+            </li>
+            <li>
+                <a href="#skills" title="skills">Blog</a>
+            </li>
+            <li>
+                <a href="#jobs" title="jobs">APD</a>
+            </li>
+            <li>
+                <a href="#contact" title="contact">About Us</a>
+            </li>
+        </ul>
+    </span>
+    <span class="cls"></span>
+</div>
+
+{% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+
+
+<div class="menu">
+  <div class="label">Follow Me</div>
+  <div class="spacer"></div>
+  <div class="item"><span>Facbook</span></div>
+  <div class="item"><span>Instagram</span></div>
+  <div class="item"><span>aryaman</span></div>
+  <div class="item"><span>mahima</span></div>
+  <div class="item"><span>debsoc</span></div>
+</div>
+
+    
+<script src="../static/js/three.r95.min.js"></script>
+<script src="../static/js/vanta.globe.min.js"></script>
+<script src="../static/js/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+        $(document).delegate('.open', 'click', function(event){
+            $(this).addClass('oppenned');
+            event.stopPropagation();
+        })
+        $(document).delegate('body', 'click', function(event) {
+            $('.open').removeClass('oppenned');
+        })
+        $(document).delegate('.cls', 'click', function(event){
+            $('.open').removeClass('oppenned');
+            event.stopPropagation();
+        });
+    });
+
+VANTA.GLOBE({
+  el: "#vantajs",
+  mouseControls: true,
+  touchControls: true,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0x1702b6,
+  color2: 0x9196b9,
+  size: 1.00,
+  backgroundColor: 0x0
+})
+</script>
+
+
+     </body>  
+  </html>
